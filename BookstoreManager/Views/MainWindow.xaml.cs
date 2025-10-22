@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using BookstoreManager.Models;
 
 namespace BookstoreManager
 {
@@ -23,6 +24,8 @@ namespace BookstoreManager
         public MainWindow()
         {
             InitializeComponent();
+
+            CreateDB createDB = new CreateDB(); // create the database tables
         }
     }
 }

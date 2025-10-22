@@ -6,7 +6,121 @@
         xmlns:local="clr-namespace:BookstoreManager"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
+    <Grid Background="#F5F5F5">
+        <Border Background="White" 
+            CornerRadius="10" 
+            Padding="30" 
+            Width="350" 
+            Height="300">
+
+            <StackPanel VerticalAlignment="Center">
+
+                <TextBlock Text="Welcome to Bookstore Manager" 
+                       FontSize="20" 
+                       FontWeight="Bold" 
+                       HorizontalAlignment="Center" 
+                       Margin="0,0,0,20" 
+                       Foreground="#333333"/>
+
+                <!-- Username Field -->
+                <TextBlock Text="Username" Margin="0,5,0,2" Foreground="#666666"/>
+                <TextBox x:Name="txtUsername" 
+                     Height="30" 
+                     Padding="5" 
+                     BorderBrush="#CCCCCC" 
+                     BorderThickness="1"
+                     Margin="0,0,0,10"/>
+
+                <!-- Password Field -->
+                <TextBlock Text="Password" Margin="0,5,0,2" Foreground="#666666"/>
+                <PasswordBox x:Name="pwdPassword" 
+                         Height="30" 
+                         Padding="5" 
+                         BorderBrush="#CCCCCC" 
+                         BorderThickness="1"
+                         Margin="0,0,0,20"/>
+
+                <!-- Login Button -->
+                <Button x:Name="btnLogin" 
+                    Content="Login" 
+                    Height="35" 
+              
+                    Margin="0,0,0,10"/>
+
+                <!-- Create Account Button -->
+                <Button x:Name="btnCreateAccount" 
+                    Content="Create Account" 
+                    Height="35" 
+                   />
+
+            </StackPanel>
+        </Border>
+
+        <!-- Define Styles and Resources -->
+        <Grid.Resources>
+            <!-- Standard Drop Shadow Effect -->
+            <DropShadowEffect x:Key="DropShadowEffect" 
+                          Color="#AAAAAA" 
+                          Direction="270" 
+                          ShadowDepth="3" 
+                          BlurRadius="5" 
+                          Opacity="0.4"/>
+
+            <!-- Primary Button Style (Blue) -->
+            <Style x:Key="PrimaryButtonStyle" TargetType="Button">
+                <Setter Property="Background" Value="#007ACC"/>
+                <Setter Property="Foreground" Value="White"/>
+                <Setter Property="FontSize" Value="14"/>
+                <Setter Property="FontWeight" Value="SemiBold"/>
+                <Setter Property="BorderThickness" Value="0"/>
+                <Setter Property="Cursor" Value="Hand"/>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="Button">
+                            <Border Background="{TemplateBinding Background}" 
+                                CornerRadius="5" 
+                                Padding="{TemplateBinding Padding}">
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </Border>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+                <Style.Triggers>
+                    <Trigger Property="IsMouseOver" Value="True">
+                        <Setter Property="Background" Value="#005A9C"/>
+                    </Trigger>
+                </Style.Triggers>
+            </Style>
+
+            <!-- Secondary Button Style (Gray/White) -->
+            <Style x:Key="SecondaryButtonStyle" TargetType="Button">
+                <Setter Property="Background" Value="Transparent"/>
+                <Setter Property="Foreground" Value="#007ACC"/>
+                <Setter Property="FontSize" Value="14"/>
+                <Setter Property="BorderBrush" Value="#007ACC"/>
+                <Setter Property="BorderThickness" Value="1"/>
+                <Setter Property="Cursor" Value="Hand"/>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="Button">
+                            <Border Background="{TemplateBinding Background}" 
+                                BorderBrush="{TemplateBinding BorderBrush}" 
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                CornerRadius="5" 
+                                Padding="{TemplateBinding Padding}">
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </Border>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+                <Style.Triggers>
+                    <Trigger Property="IsMouseOver" Value="True">
+                        <Setter Property="Background" Value="#E6F2FF"/>
+                    </Trigger>
+                </Style.Triggers>
+            </Style>
+
+        </Grid.Resources>
     </Grid>
+
 </Window>
