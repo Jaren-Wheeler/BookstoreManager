@@ -10,8 +10,8 @@
         <Border Background="White" 
             CornerRadius="10" 
             Padding="30" 
-            Width="350" 
-            Height="300">
+            Width="375" 
+            Height="375">
 
             <StackPanel VerticalAlignment="Center">
 
@@ -50,7 +50,8 @@
                 <!-- Create Account Button -->
                 <Button x:Name="btnCreateAccount" 
                     Content="Create Account" 
-                    Height="35" 
+                    Height="35"
+                    Click="btnCreateAccountAction"
                    />
 
             </StackPanel>

@@ -1,57 +1,65 @@
-﻿<Window x:Class="BookstoreManager.MainWindow"
+﻿<Window x:Class="BookstoreManager.Views.CreateAccount"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BookstoreManager"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="CreateAccount" Height="450" Width="800">
     <Grid Background="#F5F5F5">
         <Border Background="White" 
             CornerRadius="10" 
             Padding="30" 
             Width="375" 
-            Height="375">
+            Height="400">
 
             <StackPanel VerticalAlignment="Center">
 
-                <TextBlock Text="Welcome to Bookstore Manager" 
+                <TextBlock Text="Create Account" 
                        FontSize="20" 
                        FontWeight="Bold" 
                        HorizontalAlignment="Center" 
                        Margin="0,0,0,20" 
                        Foreground="#333333"/>
 
-                <!-- Username Field -->
-                <TextBlock Text="Username" Margin="0,5,0,2" Foreground="#666666"/>
-                <TextBox x:Name="txtUsername" 
+                <!-- Create Username Field -->
+                <TextBlock Text="Create Username" Margin="0,5,0,2" Foreground="#666666"/>
+                <TextBox x:Name="txtCreateUsername" 
                      Height="30" 
                      Padding="5" 
                      BorderBrush="#CCCCCC" 
                      BorderThickness="1"
                      Margin="0,0,0,10"/>
 
-                <!-- Password Field -->
-                <TextBlock Text="Password" Margin="0,5,0,2" Foreground="#666666"/>
-                <PasswordBox x:Name="pwdPassword" 
+                <!-- Create Password Field -->
+                <TextBlock Text="Create Password" Margin="0,5,0,2" Foreground="#666666"/>
+                <PasswordBox x:Name="pwdCreatePassword" 
                          Height="30" 
                          Padding="5" 
                          BorderBrush="#CCCCCC" 
                          BorderThickness="1"
                          Margin="0,0,0,20"/>
 
-                <!-- Login Button -->
-                <Button x:Name="btnLogin" 
-                    Content="Login" 
+                <!-- Confirm Password Field -->
+                <TextBlock Text="Confirm Password" Margin="0,5,0,2" Foreground="#666666"/>
+                <PasswordBox x:Name="pwdConfirmPassword" 
+                        Height="30" 
+                        Padding="5" 
+                        BorderBrush="#CCCCCC" 
+                        BorderThickness="1"
+                        Margin="0,0,0,20"/>
+
+                <!-- Confirm Button -->
+                <Button x:Name="btnConfirm" 
+                    Content="Confirm" 
                     Height="35" 
               
                     Margin="0,0,0,10"/>
 
-                <!-- Create Account Button -->
-                <Button x:Name="btnCreateAccount" 
-                    Content="Create Account" 
-                    Height="35"
-                    Click="btnCreateAccountAction"
+                <!-- Cancel Button -->
+                <Button x:Name="btnCancel" 
+                    Content="Cancel" 
+                    Height="35" 
                    />
 
             </StackPanel>
@@ -125,3 +133,4 @@
     </Grid>
 
 </Window>
+

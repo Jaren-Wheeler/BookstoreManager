@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using BookstoreManager.Models;
+using BookstoreManager.Views;
 
 namespace BookstoreManager
 {
@@ -26,6 +27,13 @@ namespace BookstoreManager
             InitializeComponent();
 
             CreateDB createDB = new CreateDB(); // create the database tables
+        }
+
+        private void btnCreateAccountAction(object sender, RoutedEventArgs e)
+        {
+            CreateAccount createAccountWindow = new CreateAccount();
+            createAccountWindow.Show();
+            this.Close();
         }
     }
 }
