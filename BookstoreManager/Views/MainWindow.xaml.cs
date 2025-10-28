@@ -29,10 +29,19 @@ namespace BookstoreManager
             CreateDB createDB = new CreateDB(); // create the database tables
         }
 
+        // open the create account window when Create Account button is clicked.
         private void btnCreateAccountAction(object sender, RoutedEventArgs e)
         {
             CreateAccount createAccountWindow = new CreateAccount();
             createAccountWindow.Show();
+            this.Close();
+        }
+
+        // open the main dashboard when the Login button is clicked. Check if there is matching info in User table.
+        private void btnLogin_Click(object sender, RoutedEventArgs e)
+        {
+            MainDashboard mainDashboard = new MainDashboard();
+            mainDashboard.Show();
             this.Close();
         }
     }

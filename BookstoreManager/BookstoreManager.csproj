@@ -116,6 +116,9 @@
     <Compile Include="Views\CreateAccount.xaml.cs">
       <DependentUpon>CreateAccount.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\MainDashboard.xaml.cs">
+      <DependentUpon>MainDashboard.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\SaleWindow.xaml.cs">
       <DependentUpon>SaleWindow.xaml</DependentUpon>
     </Compile>
@@ -134,7 +137,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\LoginWindow.xaml">
+    <Page Include="Views\MainDashboard.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -159,9 +162,6 @@
     </Compile>
     <Compile Include="Views\InventoryWindow.xaml.cs">
       <DependentUpon>InventoryWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\LoginWindow.xaml.cs">
-      <DependentUpon>LoginWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
