@@ -41,7 +41,6 @@ namespace BookstoreManager.Models
                     CREATE TABLE IF NOT EXISTS User (
                         UserID INTEGER PRIMARY KEY AUTOINCREMENT,
                         username TEXT NOT NULL UNIQUE,
-                        -- In a real application, this should be a large TEXT field for a secure hash
                         password TEXT NOT NULL
                     );",
                     
@@ -63,8 +62,7 @@ namespace BookstoreManager.Models
                         sale_details TEXT, 
                         pointsAccrued INTEGER DEFAULT 0,
                         CustomerID INTEGER NOT NULL, 
-                        
-                        -- This foreign key assumes a simplified one-book-per-sale model
+
                         BookID INTEGER NOT NULL, 
 
                         FOREIGN KEY (CustomerID) REFERENCES Customer(CustomerID),

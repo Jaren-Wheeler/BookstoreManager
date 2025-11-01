@@ -28,6 +28,7 @@ namespace BookstoreManager
         public MainWindow()
         {
             InitializeComponent();
+            viewModel = new UserViewModel();
         }
 
         // open the create account window when Create Account button is clicked.
@@ -41,9 +42,22 @@ namespace BookstoreManager
         // open the main dashboard when the Login button is clicked. Check if there is matching info in User table.
         private void btnLogin_Click(object sender, RoutedEventArgs e)
         {
-            MainDashboard mainDashboard = new MainDashboard();
-            mainDashboard.Show();
-            this.Close();
+
+            viewModel.Username = txtUsername.Text;
+            viewModel.Password = pwdPassword.Password;
+
+            bool loginSuccess = viewModel.Login();
+
+            if (loginSuccess)
+            {
+                MainDashboard mainDashboard = new MainDashboard();
+                mainDashboard.Show();
+                this.Close();
+            } else
+            {
+                MessageBox.Show("Incorrect Information Inputted");
+            }
+            
         }
     }
 }

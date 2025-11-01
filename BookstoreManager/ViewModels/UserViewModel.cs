@@ -21,8 +21,9 @@ namespace BookstoreManager.ViewModels
             if (user != null)
             {
                 return true;
-            } 
+            }
             return false;
+           
         }
 
         public void CreateAccount()

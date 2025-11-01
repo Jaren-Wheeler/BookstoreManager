@@ -23,9 +23,9 @@ namespace BookstoreManager.Models
             {
                 connection.Open();
                 var command = connection.CreateCommand();
-                command.CommandText = "INSERT INTO User (Username, Password) VALUES (@username, @password)";
-                command.Parameters.AddWithValue("username", username); 
-                command.Parameters.AddWithValue("password", password);
+                command.CommandText = "INSERT INTO User (username, password) VALUES (@username, @password)";
+                command.Parameters.AddWithValue("@username", username); 
+                command.Parameters.AddWithValue("@password", password);
                 command.ExecuteNonQuery();
             }
         }
@@ -37,9 +37,9 @@ namespace BookstoreManager.Models
             {
                 connection.Open();
                 var command = connection.CreateCommand();
-                command.CommandText = "Select * FROM User WHERE Username = @username AND Password = @password";
-                command.Parameters.AddWithValue("username", username);
-                command.Parameters.AddWithValue("password", password);
+                command.CommandText = "Select * FROM User WHERE username = @username AND password = @password";
+                command.Parameters.AddWithValue("@username", username);
+                command.Parameters.AddWithValue("@password", password);
                 
                 using (var reader = command.ExecuteReader()) {
                     if (reader.Read())
@@ -47,8 +47,8 @@ namespace BookstoreManager.Models
                         return new User
                         {
                             UserID = Convert.ToInt32(reader["UserID"]),
-                            Username = reader["Username"].ToString(),
-                            Password = reader["Username"].ToString()
+                            Username = reader["username"].ToString(),
+                            Password = reader["password"].ToString()
                         };
                     }
                 }
