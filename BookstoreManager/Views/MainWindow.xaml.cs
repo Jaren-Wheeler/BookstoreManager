@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using BookstoreManager.Models;
+using BookstoreManager.ViewModels;
 using BookstoreManager.Views;
 
 namespace BookstoreManager
@@ -22,6 +23,8 @@ namespace BookstoreManager
     /// </summary>
     public partial class MainWindow : Window
     {
+
+        private UserViewModel viewModel;
         public MainWindow()
         {
             InitializeComponent();

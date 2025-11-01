@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using BookstoreManager.ViewModels;
 
 namespace BookstoreManager.Views
 {
@@ -20,9 +21,39 @@ namespace BookstoreManager.Views
     /// </summary>
     public partial class CreateAccount : Window
     {
+        private UserViewModel userViewModel;
         public CreateAccount()
         {
             InitializeComponent();
+            userViewModel = new UserViewModel();
+        }
+
+        private void btnConfirm_Click(object sender, RoutedEventArgs e)
+        {
+
+            // connect the model definitons with the user inputs
+            userViewModel.Username = txtCreateUsername.Text;
+            userViewModel.Password = pwdCreatePassword.Password;
+
+            string confirmPassword = pwdConfirmPassword.Password; // define confirm password input value (not in model)
+
+            string validationMessage = userViewModel.ValidateUsers(); 
+
+            // if the validation message is not null, then print the appropriate message
+            if (validationMessage != null)
+            {
+                lblMessages.Text = validationMessage ;
+            } else
+            {
+                MessageBox.Show("Account Created Successfully","Success", MessageBoxButton.OK);
+            }
+        }
+
+        private void btnCancel_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow loginPage = new MainWindow();
+            loginPage.Show();
+            this.Close();
         }
     }
 }

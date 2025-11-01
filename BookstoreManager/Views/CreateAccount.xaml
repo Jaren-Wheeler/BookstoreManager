@@ -5,13 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BookstoreManager"
         mc:Ignorable="d"
-        Title="CreateAccount" Height="450" Width="800">
+        Title="CreateAccount" Height="600" Width="900">
     <Grid Background="#F5F5F5">
         <Border Background="White" 
             CornerRadius="10" 
             Padding="30" 
             Width="375" 
-            Height="400">
+            Height="500">
 
             <StackPanel VerticalAlignment="Center">
 
@@ -22,6 +22,9 @@
                        Margin="0,0,0,20" 
                        Foreground="#333333"/>
 
+                <TextBlock x:Name="lblMessages"
+                     ></TextBlock>
+                
                 <!-- Create Username Field -->
                 <TextBlock Text="Create Username" Margin="0,5,0,2" Foreground="#666666"/>
                 <TextBox x:Name="txtCreateUsername" 
@@ -54,12 +57,12 @@
                     Content="Confirm" 
                     Height="35" 
               
-                    Margin="0,0,0,10"/>
+                    Margin="0,0,0,10" Click="btnConfirm_Click"/>
 
                 <!-- Cancel Button -->
                 <Button x:Name="btnCancel" 
                     Content="Cancel" 
-                    Height="35" 
+                    Height="35" Click="btnCancel_Click" 
                    />
 
             </StackPanel>
