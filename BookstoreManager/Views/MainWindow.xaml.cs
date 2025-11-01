@@ -28,8 +28,6 @@ namespace BookstoreManager
         public MainWindow()
         {
             InitializeComponent();
-
-            CreateDB createDB = new CreateDB(); // create the database tables
         }
 
         // open the create account window when Create Account button is clicked.

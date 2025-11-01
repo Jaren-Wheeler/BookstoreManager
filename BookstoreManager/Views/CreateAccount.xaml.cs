@@ -37,16 +37,27 @@ namespace BookstoreManager.Views
 
             string confirmPassword = pwdConfirmPassword.Password; // define confirm password input value (not in model)
 
-            string validationMessage = userViewModel.ValidateUsers(); 
+            string validationMessage = userViewModel.ValidateUsers();
 
             // if the validation message is not null, then print the appropriate message
-            if (validationMessage != null)
+
+            if (pwdCreatePassword.Password != confirmPassword)
             {
-                lblMessages.Text = validationMessage ;
+                lblMessages.Text = "Passwords must match";
             } else
             {
-                MessageBox.Show("Account Created Successfully","Success", MessageBoxButton.OK);
+                if (validationMessage != null)
+                {
+
+                    lblMessages.Text = validationMessage;
+                }
+                else
+                {
+                    MessageBox.Show("Account Created Successfully", "Success", MessageBoxButton.OK); // popup success message
+                    userViewModel.CreateAccount(); // insert information into the User table.
+                }
             }
+            
         }
 
         private void btnCancel_Click(object sender, RoutedEventArgs e)

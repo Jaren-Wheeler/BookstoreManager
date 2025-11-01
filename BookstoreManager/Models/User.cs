@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data.SQLite;
 using System.Linq;
+using System.Net.NetworkInformation;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -13,11 +14,12 @@ namespace BookstoreManager.Models
         public string Username { get; set; }
         public string Password { get; set; }
 
+        string dbPath = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "BookstoreDB.sqlite");
 
         // Queries the database to insert a user into the database when an account is created
         public void CreateUser(string username, string password)
         {
-            using (var connection = new SQLiteConnection("Data Source=Bookstore.db"))
+            using (var connection = new SQLiteConnection($"Data Source={dbPath}"))
             {
                 connection.Open();
                 var command = connection.CreateCommand();
@@ -31,7 +33,7 @@ namespace BookstoreManager.Models
         // Queries the database to pull info from User table when a person is logging in. Returns the user if a match exists, otherwise null.
         public User LoginUser(string username, string password)
         {
-            using (var connection = new SQLiteConnection("Data Source=Bookstore.db"))
+            using (var connection = new SQLiteConnection($"Data Source={dbPath}"))
             {
                 connection.Open();
                 var command = connection.CreateCommand();
