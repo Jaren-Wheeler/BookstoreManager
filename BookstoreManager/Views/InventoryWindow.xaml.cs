@@ -18,7 +18,7 @@ namespace BookstoreManager.Views
     /// <summary>
     /// Interaction logic for InventoryWindow.xaml
     /// </summary>
-    public partial class InventoryWindow : Page
+    public partial class InventoryWindow : Window
     {
         public InventoryWindow()
         {

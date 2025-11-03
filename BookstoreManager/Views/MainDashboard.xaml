@@ -21,11 +21,11 @@
                        Margin="20,30,0,30"/>
 
             <!-- Navigation Buttons -->
-            <Button Content="Dashboard" Height="50" Margin="10" Foreground="White" Background="#007ACC"/>
-            <Button Content="Books" Height="50" Margin="10" Foreground="White" Background="#007ACC"/>
-            <Button Content="Customers" Height="50" Margin="10" Foreground="White" Background="#007ACC"/>
-            <Button Content="Sales" Height="50" Margin="10" Foreground="White" Background="#007ACC"/>
-            <Button Content="Log Out" Height="50" Margin="10" Foreground="White" Background="#007ACC"/>
+            <Button x:Name="dashboardNavBtn" Content="Dashboard" Height="50" Margin="10" Foreground="White" Background="#007ACC" Click="dashboardNavBtn_Click"/>
+            <Button x:Name="bookNavBtn" Content="Books" Height="50" Margin="10" Foreground="White" Background="#007ACC" Click="Button_Click"/>
+            <Button x:Name="customerNavBtn" Content="Customers" Height="50" Margin="10" Foreground="White" Background="#007ACC" Click="customerNavBtn_Click"/>
+            <Button x:Name="salesNavBtn" Content="Sales" Height="50" Margin="10" Foreground="White" Background="#007ACC" Click="salesNavBtn_Click"/>
+            <Button x:Name="logoutBtn" Content="Log Out" Height="50" Margin="10" Foreground="White" Background="#007ACC" Click="logoutBtn_Click"/>
         </StackPanel>
 
         <!-- Main Content Area -->

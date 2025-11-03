@@ -23,5 +23,40 @@ namespace BookstoreManager.Views
         {
             InitializeComponent();
         }
+
+        private void dashboardNavBtn_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            InventoryWindow bookInventory = new InventoryWindow();
+            bookInventory.Show();
+            this.Close();
+        }
+
+        private void customerNavBtn_Click(object sender, RoutedEventArgs e)
+        {
+            CustomerWindow customerPage = new CustomerWindow();
+            customerPage.Show();
+            this.Close();
+        }
+
+        private void salesNavBtn_Click(object sender, RoutedEventArgs e)
+        {
+            SaleWindow salesWindow = new SaleWindow();
+            salesWindow.Show();
+            this.Close();
+        }
+
+        private void logoutBtn_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow loginPage = new MainWindow();
+            loginPage.Show();
+            this.Close();
+        }
+
+      
     }
 }

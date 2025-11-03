@@ -18,7 +18,7 @@ namespace BookstoreManager.Views
     /// <summary>
     /// Interaction logic for SaleWindow.xaml
     /// </summary>
-    public partial class SaleWindow : Page
+    public partial class SaleWindow : Window
     {
         public SaleWindow()
         {
