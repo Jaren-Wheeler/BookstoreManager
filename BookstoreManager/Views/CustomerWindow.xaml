@@ -8,7 +8,83 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="CustomerWindow">
 
-    <Grid>
-        
+    <Grid Margin="15">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- Header and Back Button -->
+        <DockPanel Grid.Row="0" Margin="0 0 0 10">
+            <Button x:Name="btnBack"
+                 Content="← Back"
+                 Width="80"
+                 Margin="0 0 10 0"
+                 Background="#E0E0E0"
+                 FontWeight="Bold"
+                 Click="btnBack_Click"/>
+            <TextBlock Text="Customer List"
+                    FontSize="24"
+                    VerticalAlignment="Center"
+                    FontWeight="Bold"/>
+        </DockPanel>
+
+        <!-- Search Bar and Filters -->
+        <StackPanel Grid.Row="1"
+                 Orientation="Horizontal"
+                 Margin="0 0 0 10"
+                 VerticalAlignment="Center"
+                 HorizontalAlignment="Stretch"
+                 >
+            <TextBox x:Name="txtSearch"
+                  Width="200"
+                  Height="28"
+                  Margin="0 0 10 0"
+          />
+
+            <ComboBox x:Name="filterByCombo"
+                   Width="150"
+                   Height="28"
+                   SelectedIndex="0"
+                   Margin="0 0 10 0">
+                <ComboBoxItem Content="Filter by ID"/>
+                <ComboBoxItem Content="Filter by Title"/>
+                <ComboBoxItem Content="Filter by Author"/>
+            </ComboBox>
+
+            <Button x:Name="btnClearFilters"
+                 Content="Clear Filters"
+                 Height="28"
+                 Background="#EEE"
+                 FontWeight="Bold"/>
+        </StackPanel>
+
+        <!-- DataGrid -->
+        <DataGrid x:Name="BooksDataGrid"
+               Grid.Row="2"
+               AutoGenerateColumns="False"
+               CanUserAddRows="False"
+               IsReadOnly="True"
+               RowHeaderWidth="0"
+               SelectionMode="Single"
+               GridLinesVisibility="All"
+               HeadersVisibility="Column"
+               AlternatingRowBackground="#FFF"
+               BorderBrush="#DDD"
+               BorderThickness="1">
+
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID"
+                                 Binding="{Binding Id}"
+                                 Width="80"/>
+                <DataGridTextColumn Header="First Name"
+                                 Binding="{Binding FirstName}"
+                                 Width="*"/>
+                <DataGridTextColumn Header="Last Name"
+                                 Binding="{Binding LastName}"
+                                 Width="200"/>
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
 </Window>
