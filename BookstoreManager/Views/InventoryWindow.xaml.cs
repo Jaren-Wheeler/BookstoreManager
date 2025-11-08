@@ -31,5 +31,12 @@ namespace BookstoreManager.Views
             mainDashboard.Show();
             this.Close();
         }
+
+        private void btnAddBooks_Click(object sender, RoutedEventArgs e)
+        {
+            AddBookPopup addBookWindow = new AddBookPopup();
+            addBookWindow.Show();
+            this.Close();
+        }
     }
 }
