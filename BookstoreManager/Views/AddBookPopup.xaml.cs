@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using BookstoreManager.ViewModels;
 
 namespace BookstoreManager.Views
 {
@@ -19,9 +20,11 @@ namespace BookstoreManager.Views
     /// </summary>
     public partial class AddBookPopup : Window
     {
+        private BookViewModel bookViewModel;
         public AddBookPopup()
         {
             InitializeComponent();
+            bookViewModel = new BookViewModel();
         }
 
         private void Close_Click(object sender, RoutedEventArgs e)
@@ -33,7 +36,26 @@ namespace BookstoreManager.Views
 
         private void SubmitButton_Click(object sender, RoutedEventArgs e)
         {
+            bookViewModel.Title = TitleTextBox.Text;
+            bookViewModel.Author = AuthorTextBox.Text;
+            decimal price;
 
+            if (decimal.TryParse(PriceTextBox.Text, out price))
+            {
+                bookViewModel.Price = price;
+            } else
+            {
+                MessageBox.Show("Please enter a valid price", "Invalid Input", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+
+            if (bookViewModel.ValidateBook() == null)
+            {
+                bookViewModel.AddBookToSystem();
+                MessageBox.Show(TitleTextBox.Text + " has been successfully added");
+            } else
+            {
+                MessageBox.Show(bookViewModel.ValidateBook());
+            }
         }
     }
 }
