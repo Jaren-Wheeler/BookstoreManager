@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using BookstoreManager.ViewModels;
 
 namespace BookstoreManager.Views
 {
@@ -20,9 +21,14 @@ namespace BookstoreManager.Views
     /// </summary>
     public partial class InventoryWindow : Window
     {
+        private BookViewModel bookViewModel;
         public InventoryWindow()
         {
             InitializeComponent();
+            bookViewModel = new BookViewModel();
+            this.DataContext = bookViewModel;
+
+            bookViewModel.DisplayBooks();
         }
 
         private void btnBack_Click(object sender, RoutedEventArgs e)

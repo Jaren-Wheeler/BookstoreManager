@@ -70,6 +70,7 @@
         <!-- DataGrid -->
         <DataGrid x:Name="BooksDataGrid"
                   Grid.Row="2"
+                  ItemsSource="{Binding Books}"
                   AutoGenerateColumns="False"
                   CanUserAddRows="False"
                   IsReadOnly="True"
@@ -91,6 +92,9 @@
                 <DataGridTextColumn Header="Author"
                                     Binding="{Binding Author}"
                                     Width="200"/>
+                <DataGridTextColumn Header="Price"
+                                    Binding="{Binding Price}"
+                                    Width="100"/>
             </DataGrid.Columns>
         </DataGrid>
     </Grid>
