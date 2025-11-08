@@ -10,33 +10,30 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace BookstoreManager.Views
 {
     /// <summary>
-    /// Interaction logic for InventoryWindow.xaml
+    /// Interaction logic for AddBookPopup.xaml
     /// </summary>
-    public partial class InventoryWindow : Window
+    public partial class AddBookPopup : Window
     {
-        public InventoryWindow()
+        public AddBookPopup()
         {
             InitializeComponent();
         }
 
-        private void btnBack_Click(object sender, RoutedEventArgs e)
+        private void Close_Click(object sender, RoutedEventArgs e)
         {
-            MainDashboard mainDashboard = new MainDashboard();
-            mainDashboard.Show();
+            InventoryWindow inventoryWindow = new InventoryWindow();
+            inventoryWindow.Show();
             this.Close();
         }
 
-        private void btnAddBooks_Click(object sender, RoutedEventArgs e)
+        private void SubmitButton_Click(object sender, RoutedEventArgs e)
         {
-            AddBookPopup addBookWindow = new AddBookPopup();
-            addBookWindow.Show();
-            this.Close();
+
         }
     }
 }
