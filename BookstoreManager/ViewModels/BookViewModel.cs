@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,6 +15,8 @@ namespace BookstoreManager.ViewModels
         public decimal Price { get; set; }
 
         public Book book = new Book();
+
+        public ObservableCollection<Book> Books { get; set; } = new ObservableCollection<Book>(); // stores the list of books fetched from the database
 
         // Call the method from the Book model to add a book to the database
         public void AddBookToSystem()
@@ -32,6 +35,17 @@ namespace BookstoreManager.ViewModels
             }
            
             return null;
+        }
+
+        // Fetches all books from the database. Adds them to the ObservableCollection Books.
+        public void DisplayBooks()
+        {
+            Books.Clear();
+            var bookList = book.FetchBooks();
+            foreach (var book in bookList)
+            {
+                Books.Add(book);
+            }
         }
     }
     
