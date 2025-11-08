@@ -46,6 +46,7 @@
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
 
                 <Grid.ColumnDefinitions>
@@ -73,9 +74,19 @@
                          Margin="0,0,0,10"
                          Height="25" />
 
+                <!-- Price -->
+                <TextBlock Text="Price:" 
+                        Grid.Row="2" Grid.Column="0" 
+                        VerticalAlignment="Center"
+                        Margin="0,0,10,10"/>
+                <TextBox x:Name="PriceTextBox" 
+                      Grid.Row="2" Grid.Column="1" 
+                      Margin="0,0,0,10"
+                      Height="25" />
+                
                 <!-- Submit Button -->
                 <Button x:Name="SubmitButton" 
-                        Grid.Row="2" Grid.ColumnSpan="2"
+                        Grid.Row="3" Grid.ColumnSpan="2"
                         Content="Add Book"
                         Height="30"
                         Width="100"
