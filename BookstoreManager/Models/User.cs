@@ -24,8 +24,12 @@ namespace BookstoreManager.Models
                 connection.Open();
                 var command = connection.CreateCommand();
                 command.CommandText = "INSERT INTO User (username, password) VALUES (@username, @password)";
+
+                string hashedPassword = BCrypt.Net.BCrypt.HashPassword(password); // hash the plain text password
+
+                // insert the values into the database. Store the password as a hashed password.
                 command.Parameters.AddWithValue("@username", username); 
-                command.Parameters.AddWithValue("@password", password);
+                command.Parameters.AddWithValue("@password", hashedPassword);
                 command.ExecuteNonQuery();
             }
         }
@@ -37,19 +41,30 @@ namespace BookstoreManager.Models
             {
                 connection.Open();
                 var command = connection.CreateCommand();
-                command.CommandText = "Select * FROM User WHERE username = @username AND password = @password";
+                command.CommandText = "Select * FROM User WHERE username = @username";
                 command.Parameters.AddWithValue("@username", username);
-                command.Parameters.AddWithValue("@password", password);
+            
                 
                 using (var reader = command.ExecuteReader()) {
                     if (reader.Read())
                     {
-                        return new User
+
+                        // stored hashed password
+                        string storedHash = reader["password"].ToString();
+
+                        // use Bcrypt library to check if the password matches the stored hashed password
+                        bool isPasswordValid = BCrypt.Net.BCrypt.Verify(password, storedHash);
+
+                        if (isPasswordValid)
                         {
-                            UserID = Convert.ToInt32(reader["UserID"]),
-                            Username = reader["username"].ToString(),
-                            Password = reader["password"].ToString()
-                        };
+                            return new User
+                            {
+                                UserID = Convert.ToInt32(reader["UserID"]),
+                                Username = reader["username"].ToString(),
+                                Password = storedHash
+                            };
+                        }
+                       
                     }
                 }
             }
