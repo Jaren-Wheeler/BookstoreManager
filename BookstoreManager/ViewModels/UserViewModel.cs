@@ -31,6 +31,7 @@ namespace BookstoreManager.ViewModels
             userModel.CreateUser(Username, Password);
         }
         
+   
         // Provides validation for the username and password inputted by the users when creating an account.
         public string ValidateUsers()
         {
