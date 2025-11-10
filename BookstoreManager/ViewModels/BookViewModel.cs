@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.IO.Packaging;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -37,11 +38,29 @@ namespace BookstoreManager.ViewModels
             return null;
         }
 
+
         // Fetches all books from the database. Adds them to the ObservableCollection Books.
-        public void DisplayBooks()
+        public void DisplayBooks(string filter, int? id = null, string title = null, string author = null)
         {
             Books.Clear();
-            var bookList = book.FetchBooks();
+            List<Book> bookList;
+
+            if (filter == "Filter by ID")
+            {
+                bookList = book.FilterBooks(id);
+            } 
+            else if (filter == "Filter by Title") {
+                bookList = book.FilterBooks(null, title);
+            }
+            else if (filter == "Filter by Author")
+            {
+                bookList = book.FilterBooks(null, null, author);
+            }
+            else
+            {
+                bookList = book.FetchBooks();
+            }
+            
             foreach (var book in bookList)
             {
                 Books.Add(book);
