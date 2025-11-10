@@ -40,14 +40,14 @@
             <TextBox x:Name="txtSearch"
                      Width="200"
                      Height="28"
-                     Margin="0 0 10 0"
+                     Margin="0 0 10 0" TextChanged="txtSearch_TextChanged"
              />
 
             <ComboBox x:Name="filterByCombo"
                       Width="150"
                       Height="28"
                       SelectedIndex="0"
-                      Margin="0 0 10 0">
+                      Margin="0 0 10 0" SelectionChanged="filterByCombo_SelectionChanged">
                 <ComboBoxItem Content="Filter by ID"/>
                 <ComboBoxItem Content="Filter by Title"/>
                 <ComboBoxItem Content="Filter by Author"/>
@@ -84,7 +84,7 @@
 
             <DataGrid.Columns>
                 <DataGridTextColumn Header="ID"
-                                    Binding="{Binding Id}"
+                                    Binding="{Binding BookId}"
                                     Width="80"/>
                 <DataGridTextColumn Header="Title"
                                     Binding="{Binding Title}"
