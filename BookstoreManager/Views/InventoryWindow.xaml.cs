@@ -47,6 +47,13 @@ namespace BookstoreManager.Views
             this.Close();
         }
 
+        private void Title_Click(object sender, RoutedEventArgs e)
+        {
+            EditBookPopup editBookWindow = new EditBookPopup();
+            editBookWindow.Show();
+            this.Close();
+        }
+
         private void filterByCombo_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (bookViewModel == null) return;
