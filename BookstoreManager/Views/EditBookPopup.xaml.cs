@@ -34,18 +34,33 @@ namespace BookstoreManager.Views
             bookViewModel = new BookViewModel();
         }
 
-        // event handler to go back to inventory page
-        private void btnBack_Click(object sender, RoutedEventArgs e)
+        public void returnToPrevious()
         {
             InventoryWindow inventoryWindow = new InventoryWindow();
             inventoryWindow.Show();
             this.Close();
         }
+        // event handler to go back to inventory page
+        private void btnBack_Click(object sender, RoutedEventArgs e)
+        {
+            returnToPrevious();
+        }
 
         // event handler to delete the book from the system
         private void btnDelete_Click(object sender, RoutedEventArgs e)
         {
+            var result = MessageBox.Show("Are you sure you want to delete this book?","Confirm Delete",MessageBoxButton.YesNo);
 
+         
+            if (result == MessageBoxResult.Yes)
+            {
+                //bookViewModel.CheckForMultipleBooks(); //if more than one of the same book exists, check if user wants to delete all, or just remove one from inventory.
+                bookViewModel.DeleteBookInSystem(_book.BookID);
+                returnToPrevious();
+            } else
+            {
+                return;
+            }
         }
 
         // event handler to submit changes to the book
@@ -79,9 +94,7 @@ namespace BookstoreManager.Views
             MessageBox.Show("Book updated successfully!");
 
             // return to inventory window
-            InventoryWindow inventoryWindow = new InventoryWindow();
-            inventoryWindow.Show();
-            this.Close();
+            returnToPrevious();
         }
 
     }
