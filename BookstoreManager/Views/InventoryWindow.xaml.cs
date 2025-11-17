@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using BookstoreManager.ViewModels;
+using BookstoreManager.Models;
 
 namespace BookstoreManager.Views
 {
@@ -49,7 +50,12 @@ namespace BookstoreManager.Views
 
         private void Title_Click(object sender, RoutedEventArgs e)
         {
-            EditBookPopup editBookWindow = new EditBookPopup();
+            TextBlock tb = sender as TextBlock;
+            Book book = tb.DataContext as Book;
+
+            if (book == null) return;
+
+            EditBookPopup editBookWindow = new EditBookPopup(book);
             editBookWindow.Show();
             this.Close();
         }

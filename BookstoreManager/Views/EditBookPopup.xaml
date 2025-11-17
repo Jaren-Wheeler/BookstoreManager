@@ -6,7 +6,9 @@
         ResizeMode="NoResize">
 
     <Grid Margin="20">
+        
         <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto"/>
             <!-- Title -->
             <RowDefinition Height="Auto"/>
@@ -24,20 +26,27 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
+        <TextBlock Grid.Row="0" Grid.ColumnSpan="2"
+           Text="Edit Book Details"
+           FontSize="20"
+           FontWeight="Bold"
+           HorizontalAlignment="Center"
+           Margin="0,0,0,20"/>
+
         <!-- Book Title -->
-        <TextBlock Text="Title:" Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" Margin="0,0,10,10"/>
-        <TextBox Text="{Binding Title}" Grid.Row="0" Grid.Column="1" Margin="0,0,0,10"/>
+        <TextBlock Text="Title:" Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" Margin="0,0,10,10"/>
+        <TextBox Name="titleTextBlock" Grid.Row="1" Grid.Column="1" Margin="0,0,0,10"/>
 
         <!-- Book Author -->
-        <TextBlock Text="Author:" Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" Margin="0,0,10,10"/>
-        <TextBox Text="{Binding Author}" Grid.Row="1" Grid.Column="1" Margin="0,0,0,10"/>
+        <TextBlock Text="Author:" Grid.Row="2" Grid.Column="0" VerticalAlignment="Center" Margin="0,0,10,10"/>
+        <TextBox Name="authorTextBlock" Grid.Row="2" Grid.Column="1" Margin="0,0,0,10"/>
 
         <!-- Book Price -->
-        <TextBlock Text="Price:" Grid.Row="2" Grid.Column="0" VerticalAlignment="Center" Margin="0,0,10,10"/>
-        <TextBox Text="{Binding Price}" Grid.Row="2" Grid.Column="1" Margin="0,0,0,10"/>
+        <TextBlock Text="Price:" Grid.Row="3" Grid.Column="0" VerticalAlignment="Center" Margin="0,0,10,10"/>
+        <TextBox Name="priceTextBlock" Grid.Row="3" Grid.Column="1" Margin="0,0,0,10"/>
 
         <!-- Buttons -->
-        <StackPanel Grid.Row="4" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,20,0,0">
+        <StackPanel Grid.Row="5" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,20,0,0">
             <Button Content="Back" Width="80" Margin="0,0,10,0" Click="btnBack_Click"/>
             <Button Content="Delete" Width="80" Margin="0,0,10,0" Click="btnDelete_Click" Background="Red" Foreground="White"/>
             <Button Content="Submit" Width="80" Click="btnSubmit_Click" Background="Green" Foreground="White"/>

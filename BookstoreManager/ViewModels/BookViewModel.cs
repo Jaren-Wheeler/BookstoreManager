@@ -3,14 +3,17 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.IO.Packaging;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Schema;
 using BookstoreManager.Models;
 
 namespace BookstoreManager.ViewModels
 {
     internal class BookViewModel
     {
+        public int Id { get; set; }
         public string Title { get; set; }
         public string Author { get; set; }
         public decimal Price { get; set; }
@@ -65,6 +68,18 @@ namespace BookstoreManager.ViewModels
             {
                 Books.Add(book);
             }
+        }
+
+        // Method to update an existing book in the database
+        public void EditBookInSystem()
+        {
+            book.UpdateBook(Id,Title, Author, Price);
+        }
+
+        // Method to delete a book from the database
+        public void DeleteBookInSytem()
+        {
+
         }
     }
     
