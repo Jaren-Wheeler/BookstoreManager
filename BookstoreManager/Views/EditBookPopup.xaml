@@ -1,0 +1,47 @@
+﻿<Window x:Class="BookstoreManager.Views.EditBookPopup"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Book Details" Height="300" Width="400"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize">
+
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <!-- Title -->
+            <RowDefinition Height="Auto"/>
+            <!-- Author -->
+            <RowDefinition Height="Auto"/>
+            <!-- Price -->
+            <RowDefinition Height="*" />
+            <!-- Spacer -->
+            <RowDefinition Height="Auto"/>
+            <!-- Buttons -->
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- Book Title -->
+        <TextBlock Text="Title:" Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" Margin="0,0,10,10"/>
+        <TextBox Text="{Binding Title}" Grid.Row="0" Grid.Column="1" Margin="0,0,0,10"/>
+
+        <!-- Book Author -->
+        <TextBlock Text="Author:" Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" Margin="0,0,10,10"/>
+        <TextBox Text="{Binding Author}" Grid.Row="1" Grid.Column="1" Margin="0,0,0,10"/>
+
+        <!-- Book Price -->
+        <TextBlock Text="Price:" Grid.Row="2" Grid.Column="0" VerticalAlignment="Center" Margin="0,0,10,10"/>
+        <TextBox Text="{Binding Price}" Grid.Row="2" Grid.Column="1" Margin="0,0,0,10"/>
+
+        <!-- Buttons -->
+        <StackPanel Grid.Row="4" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,20,0,0">
+            <Button Content="Back" Width="80" Margin="0,0,10,0" Click="btnBack_Click"/>
+            <Button Content="Delete" Width="80" Margin="0,0,10,0" Click="btnDelete_Click" Background="Red" Foreground="White"/>
+            <Button Content="Submit" Width="80" Click="btnSubmit_Click" Background="Green" Foreground="White"/>
+        </StackPanel>
+    </Grid>
+</Window>
+
