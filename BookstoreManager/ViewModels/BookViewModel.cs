@@ -77,9 +77,15 @@ namespace BookstoreManager.ViewModels
         }
 
         // Method to delete a book from the database
-        public void DeleteBookInSytem()
+        public void DeleteBookInSystem(int id)
         {
+            book.DeleteBook(id);
+        }
 
+        // check if there are multiple books of the same book in the inventory
+        public void CheckForMultipleBooks()
+        {
+            
         }
     }
     

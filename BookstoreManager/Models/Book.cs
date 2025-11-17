@@ -110,6 +110,7 @@ namespace BookstoreManager.Models
             return books;
         }
 
+        // update an existing record in the book table
         public void UpdateBook(int id, String title, String author, decimal price)
         {
             using (var connection = new SQLiteConnection($"Data Source={dbPath}"))
@@ -122,6 +123,20 @@ namespace BookstoreManager.Models
                 command.Parameters.AddWithValue("@title", title);
                 command.Parameters.AddWithValue("@author", author);
                 command.Parameters.AddWithValue("@price", price);
+                command.ExecuteNonQuery();
+            }
+        }
+
+        // delete a record in the book table
+        public void DeleteBook(decimal id)
+        {
+            using (var connection = new SQLiteConnection($"Data Source={dbPath}"))
+            {
+                connection.Open();
+                var command = connection.CreateCommand();
+                command.CommandText = "DELETE FROM Book WHERE BookID=@id";
+
+                command.Parameters.AddWithValue("@id", id);
                 command.ExecuteNonQuery();
             }
         }
