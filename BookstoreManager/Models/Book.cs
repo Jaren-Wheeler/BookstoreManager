@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.SQLite;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -107,6 +108,22 @@ namespace BookstoreManager.Models
                 }
             }
             return books;
+        }
+
+        public void UpdateBook(int id, String title, String author, decimal price)
+        {
+            using (var connection = new SQLiteConnection($"Data Source={dbPath}"))
+            {
+                connection.Open();
+                var command = connection.CreateCommand();
+                command.CommandText = "UPDATE Book SET Title = @title, Author = @author, Price = @price WHERE BookId = @id";
+
+                command.Parameters.AddWithValue("@id", id);
+                command.Parameters.AddWithValue("@title", title);
+                command.Parameters.AddWithValue("@author", author);
+                command.Parameters.AddWithValue("@price", price);
+                command.ExecuteNonQuery();
+            }
         }
     }
 }

@@ -11,7 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-
+using BookstoreManager.Models;
+using BookstoreManager.ViewModels;
 namespace BookstoreManager.Views
 {
     /// <summary>
@@ -19,9 +20,18 @@ namespace BookstoreManager.Views
     /// </summary>
     public partial class EditBookPopup : Window
     {
-        public EditBookPopup()
+        public Book _book;
+        private BookViewModel bookViewModel;
+        public EditBookPopup(Book book)
         {
             InitializeComponent();
+            _book = book;
+
+            titleTextBlock.Text = book.Title;
+            authorTextBlock.Text = book.Author;
+            priceTextBlock.Text = book.Price.ToString();
+
+            bookViewModel = new BookViewModel();
         }
 
         // event handler to go back to inventory page
@@ -41,7 +51,38 @@ namespace BookstoreManager.Views
         // event handler to submit changes to the book
         private void btnSubmit_Click(object sender, RoutedEventArgs e)
         {
+            string title = titleTextBlock.Text;
+            string author = authorTextBlock.Text;
 
+            if (!decimal.TryParse(priceTextBlock.Text, out decimal price))
+            {
+                MessageBox.Show("Please enter a valid price");
+                return;
+            }
+
+            // validate using the SAME ViewModel as Add Book
+           /*string validation = bookViewModel.ValidateBook();
+
+            if (validation != null)
+            {
+                MessageBox.Show(validation, "Invalid Input", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }*/
+
+            // Update model if validation passed
+            _book.Title = title;
+            _book.Author = author;
+            _book.Price = price;
+
+            _book.UpdateBook(_book.BookID, title, author, price); // update the book in the datbaase
+
+            MessageBox.Show("Book updated successfully!");
+
+            // return to inventory window
+            InventoryWindow inventoryWindow = new InventoryWindow();
+            inventoryWindow.Show();
+            this.Close();
         }
+
     }
 }
