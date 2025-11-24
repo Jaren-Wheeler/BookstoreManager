@@ -106,7 +106,7 @@
                 <!-- Submit Button -->
                 <Button x:Name="SubmitButton" 
                     Grid.Row="5" Grid.ColumnSpan="2"
-                    Content="Add Book"
+                    Content="Add Customer"
                     Height="30"
                     Width="100"
                     HorizontalAlignment="Center"

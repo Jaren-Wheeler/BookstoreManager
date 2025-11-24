@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using BookstoreManager.ViewModels;
 
 namespace BookstoreManager.Views
 {
@@ -20,9 +21,15 @@ namespace BookstoreManager.Views
     /// </summary>
     public partial class CustomerWindow : Window
     {
+        private CustomerViewModel customerViewModel;
+        private string currentFilter = "";
         public CustomerWindow()
         {
             InitializeComponent();
+            customerViewModel = new CustomerViewModel();
+            this.DataContext = customerViewModel;
+
+            customerViewModel.DisplayCustomer(null); // display all books
         }
 
         private void btnBack_Click(object sender, RoutedEventArgs e)

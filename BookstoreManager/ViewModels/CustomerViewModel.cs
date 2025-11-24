@@ -25,10 +25,10 @@ namespace BookstoreManager.ViewModels
         // Call the method from the Customer model to add a customer to the database
         public void AddCustomerToSystem()
         {
-            customer.AddCustomer(First_name, Last_name, Email, Phone_num, 0);
+            customer.AddCustomer(First_name, Last_name, Email, Phone_num, Points);
         }
 
-        public string ValidateBook()
+        public string ValidateCustomer()
         {
             string message;
 

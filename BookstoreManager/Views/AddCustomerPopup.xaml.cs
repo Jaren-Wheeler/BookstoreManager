@@ -47,17 +47,17 @@ namespace BookstoreManager.Views
             }
             else
             {
-                MessageBox.Show("Please enter a valid price", "Invalid Input", MessageBoxButton.OK, MessageBoxImage.Warning);
+                MessageBox.Show("Points must be integer values", "Invalid Input", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
 
-            if (customerViewModel.ValidateBook() == null)
+            if (customerViewModel.ValidateCustomer() == null)
             {
                 customerViewModel.AddCustomerToSystem();
                 MessageBox.Show(FirstNameTextBox.Text + " " + LastNameTextBox.Text + " has been successfully added");
             }
             else
             {
-                MessageBox.Show(customerViewModel.ValidateBook());
+                MessageBox.Show(customerViewModel.ValidateCustomer());
             }
         }
     }

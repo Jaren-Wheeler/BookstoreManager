@@ -60,7 +60,7 @@ namespace BookstoreManager.Models
                             Last_name = reader["last_name"].ToString(),
                             Email = reader["email"].ToString(),
                             Phone_num = reader["phone_num"].ToString(),
-                            Points = Convert.ToInt32(reader["price"])
+                            Points = Convert.ToInt32(reader["points"])
                         };
                         customers.Add(customer);
                     }
