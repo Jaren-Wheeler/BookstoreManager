@@ -31,5 +31,22 @@ namespace BookstoreManager.Views
             mainDashboard.Show();
             this.Close();
         }
+
+        private void btnClearFilters_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnAddCustomers_Click(object sender, RoutedEventArgs e)
+        {
+            AddCustomerPopup addCustomerPopup = new AddCustomerPopup();
+            addCustomerPopup.Show();
+            this.Close();
+        }
+
+        private void filterByCombo_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }

@@ -47,22 +47,31 @@
                    Width="150"
                    Height="28"
                    SelectedIndex="0"
-                   Margin="0 0 10 0">
+                   Margin="0 0 10 0" SelectionChanged="filterByCombo_SelectionChanged">
                 <ComboBoxItem Content="Filter by ID"/>
-                <ComboBoxItem Content="Filter by Title"/>
-                <ComboBoxItem Content="Filter by Author"/>
+                <ComboBoxItem Content="Filter by Name"/>
+                <ComboBoxItem Content="Filter by Email"/>
+                <ComboBoxItem Content="Filter by Phone Number"/>
             </ComboBox>
 
             <Button x:Name="btnClearFilters"
                  Content="Clear Filters"
                  Height="28"
                  Background="#EEE"
-                 FontWeight="Bold"/>
+                 FontWeight="Bold" 
+                 Margin="0 0 10 0" Click="btnClearFilters_Click"/>
+
+            <Button x:Name="btnAddCustomers"
+                 Content="Add Customers"
+                 Height="28"
+                 Background="#EEE"
+                 FontWeight="Bold" Click="btnAddCustomers_Click"/>      
         </StackPanel>
 
         <!-- DataGrid -->
         <DataGrid x:Name="BooksDataGrid"
                Grid.Row="2"
+               ItemsSource="{Binding Customers}"
                AutoGenerateColumns="False"
                CanUserAddRows="False"
                IsReadOnly="True"
@@ -80,10 +89,19 @@
                                  Width="80"/>
                 <DataGridTextColumn Header="First Name"
                                  Binding="{Binding FirstName}"
-                                 Width="*"/>
+                                 Width="150"/>
                 <DataGridTextColumn Header="Last Name"
                                  Binding="{Binding LastName}"
-                                 Width="200"/>
+                                 Width="150"/>
+                <DataGridTextColumn Header="Email"
+                                 Binding="{Binding Email}"
+                                 Width="150"/>
+                <DataGridTextColumn Header="Phone Number"
+                                 Binding="{Binding PhoneNum}"
+                                 Width="150"/>
+                <DataGridTextColumn Header="Points"
+                                 Binding="{Binding Points}"
+                                 Width="*"/>
             </DataGrid.Columns>
         </DataGrid>
     </Grid>

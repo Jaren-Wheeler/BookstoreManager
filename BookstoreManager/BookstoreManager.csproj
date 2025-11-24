@@ -119,6 +119,9 @@
     <Compile Include="Views\AddBookPopup.xaml.cs">
       <DependentUpon>AddBookPopup.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\AddCustomerPopup.xaml.cs">
+      <DependentUpon>AddCustomerPopup.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\CreateAccount.xaml.cs">
       <DependentUpon>CreateAccount.xaml</DependentUpon>
     </Compile>
@@ -135,6 +138,10 @@
       <DependentUpon>SettingsWindow.xaml</DependentUpon>
     </Compile>
     <Page Include="Views\AddBookPopup.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\AddCustomerPopup.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
