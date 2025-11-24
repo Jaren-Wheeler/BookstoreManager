@@ -11,7 +11,7 @@ namespace BookstoreManager.ViewModels
 {
     internal class CustomerViewModel
     {
-        public int Id { get; set; }
+        public int CustomerID { get; set; }
         public string First_name { get; set; }
         public string Last_name { get; set; }
         public string Email { get; set; }
@@ -69,16 +69,16 @@ namespace BookstoreManager.ViewModels
                 customerList = customer.FetchCustomers();
             }
 
-            foreach (var book in customerList)
+            foreach (var customer in customerList)
             {
-                Customers.Add(book);
+                Customers.Add(customer);
             }
         }
 
         // Method to update an existing customer in the database
         public void EditCustomerInSystem()
         {
-            customer.UpdateCustomer(Id, First_name, Last_name, Email, Phone_num, Points);
+            customer.UpdateCustomer(CustomerID, First_name, Last_name, Email, Phone_num, Points);
         }
 
         // Method to delete a customer from the database

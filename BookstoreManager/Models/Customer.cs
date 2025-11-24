@@ -47,7 +47,7 @@ namespace BookstoreManager.Models
             {
                 connection.Open();
                 var command = connection.CreateCommand();
-                command.CommandText = "SELECT CustomerId, first_name, last_name, email, phone_num, points from Customer";
+                command.CommandText = "SELECT CustomerID, first_name, last_name, email, phone_num, points from Customer";
 
                 using (var reader = command.ExecuteReader())
                 {
@@ -55,7 +55,7 @@ namespace BookstoreManager.Models
                     {
                         var customer = new Customer
                         {
-                            CustomerID = Convert.ToInt32(reader["CustomerId"]),
+                            CustomerID = Convert.ToInt32(reader["CustomerID"]),
                             First_name = reader["first_name"].ToString(),
                             Last_name = reader["last_name"].ToString(),
                             Email = reader["email"].ToString(),

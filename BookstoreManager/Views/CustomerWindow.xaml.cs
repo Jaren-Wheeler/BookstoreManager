@@ -29,7 +29,7 @@ namespace BookstoreManager.Views
             customerViewModel = new CustomerViewModel();
             this.DataContext = customerViewModel;
 
-            customerViewModel.DisplayCustomer(null); // display all books
+            customerViewModel.DisplayCustomer(null); // display all customers
         }
 
         private void btnBack_Click(object sender, RoutedEventArgs e)
