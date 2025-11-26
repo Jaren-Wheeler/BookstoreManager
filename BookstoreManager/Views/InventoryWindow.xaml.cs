@@ -94,5 +94,10 @@ namespace BookstoreManager.Views
             // Pass the filter type and input to the ViewModel
             bookViewModel.DisplayBooks(currentFilter, id, txtSearch.Text, txtSearch.Text);
         }
+
+        private void btnClearFilters_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

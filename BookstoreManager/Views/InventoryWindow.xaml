@@ -57,7 +57,7 @@
                     Content="Clear Filters"
                     Height="28"
                     Background="#EEE"
-                    FontWeight="Bold"/>
+                    FontWeight="Bold" Click="btnClearFilters_Click"/>
 
             <Button x:Name="btnAddBooks"
                      Content="Add Books"
