@@ -128,6 +128,9 @@
     <Compile Include="Views\EditBookPopup.xaml.cs">
       <DependentUpon>EditBookPopup.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\EditCustomerPopup.xaml.cs">
+      <DependentUpon>EditCustomerPopup.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\MainDashboard.xaml.cs">
       <DependentUpon>MainDashboard.xaml</DependentUpon>
     </Compile>
@@ -154,6 +157,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\EditBookPopup.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\EditCustomerPopup.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

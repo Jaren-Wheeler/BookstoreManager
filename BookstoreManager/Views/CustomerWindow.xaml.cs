@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using BookstoreManager.Models;
 using BookstoreManager.ViewModels;
 
 namespace BookstoreManager.Views
@@ -54,6 +55,18 @@ namespace BookstoreManager.Views
         private void filterByCombo_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
+        }
+
+        private void CustomerName_Click(object sender, RoutedEventArgs e)
+        {
+            TextBlock tb = sender as TextBlock;
+            Customer customer = tb.DataContext as Customer;
+
+            if (customer == null) return;
+
+            EditCustomerPopup editCustomerWindow = new EditCustomerPopup(customer);
+            editCustomerWindow.Show();
+            this.Close();
         }
     }
 }
